@@ -1,0 +1,354 @@
+/* Klaviatura moduli. Barcha klasslar kbd- bilan boshlanadi. */
+
+.kbd-field {
+  /* Bitta tugma o'lchami maydonning o'ziga nisbatan (cqw/cqh): past ekranda
+     (1366x768) ham klaviatura va ustidagi sahna ustma-ust tushmaydi */
+  --k: min(5.7cqw, 12cqh, 66px);
+  --g: calc(var(--k) * 0.12);
+  container-type: size;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#e3f2fd, #f4faff);
+}
+
+.kbd-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2cqh;
+  padding: 38px 16px 6px;
+}
+
+/* ---------- Bajarilganlar ---------- */
+
+.kbd-dots {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.kbd-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--line);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.3s var(--ease-spring);
+}
+
+.kbd-dot-on {
+  background: var(--sun);
+  border-color: #e9a91f;
+  transform: scale(1.15);
+}
+
+/* ---------- Harf topish ---------- */
+
+.kbd-letter {
+  display: grid;
+  place-items: center;
+  width: min(26cqh, 220px);
+  height: min(26cqh, 220px);
+  border-radius: 22%;
+  background: #fff;
+  border: 6px solid var(--ink);
+  box-shadow: 0 12px 0 var(--sky);
+  font-size: min(17.5cqh, 150px);
+  font-weight: 900;
+  line-height: 1;
+  animation: pop-in 0.35s both;
+}
+
+/* ---------- So'z kataklari ---------- */
+
+.kbd-word {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1cqh 0;
+  max-width: 96%;
+  --t: min(18cqh, 7cqw, 84px);
+  animation: fade-up 0.3s both;
+}
+
+.kbd-word-long {
+  --t: min(10.5cqh, 4.6cqw, 60px);
+}
+
+.kbd-word-part {
+  display: flex;
+  gap: calc(var(--t) * 0.1);
+}
+
+.kbd-tile {
+  display: grid;
+  place-items: center;
+  width: var(--t);
+  height: calc(var(--t) * 1.15);
+  border-radius: calc(var(--t) * 0.22);
+  background: #fff;
+  border: 4px solid var(--line);
+  color: var(--ink-soft);
+  font-size: calc(var(--t) * 0.62);
+  font-weight: 900;
+  line-height: 1;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.kbd-tile-cur {
+  border-color: var(--ink);
+  color: var(--ink);
+  animation: kbd-pulse 1s ease-in-out infinite;
+}
+
+.kbd-tile-done {
+  background: var(--leaf);
+  border-color: #2f9460;
+  color: #fff;
+}
+
+.kbd-tile-gap {
+  width: calc(var(--t) * 0.7);
+  margin: 0 calc(var(--t) * 0.1);
+  background: transparent;
+  border-style: dashed;
+}
+
+.kbd-tile-gap.kbd-tile-done {
+  background: transparent;
+  border-color: transparent;
+}
+
+.kbd-tile-extra {
+  background: #ffe1dc;
+  border-color: var(--coral);
+  color: #d9594b;
+  animation: kbd-sway 0.9s ease-in-out infinite;
+}
+
+.kbd-word-done {
+  animation: kbd-cheer 0.5s;
+}
+
+/* ---------- Maxsus tugmalar sahnasi ---------- */
+
+.kbd-scene {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2vw;
+  font-size: min(22cqh, 13cqw, 150px);
+  animation: fade-up 0.3s both;
+}
+
+.kbd-pond {
+  padding: 3cqh 4cqw 1cqh;
+  border-radius: 999px;
+  background: #bfe3f7;
+}
+
+.kbd-pad {
+  position: relative;
+  display: block;
+  font-size: 0.8em;
+}
+
+.kbd-frog {
+  position: absolute;
+  left: 12%;
+  bottom: 32%;
+  font-size: 0.78em;
+  animation: kbd-hop 0.35s ease-out both;
+}
+
+.kbd-door {
+  display: block;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.kbd-door-open {
+  animation: kbd-cheer 0.45s;
+}
+
+/* ---------- Raskladka ko'rsatmasi ---------- */
+
+.kbd-switch {
+  position: absolute;
+  right: 16px;
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  background: #fff;
+  border: 3px solid var(--sun);
+  font-size: 22px;
+  font-weight: 900;
+  animation: pop-in 0.35s both;
+}
+
+.kbd-switch-cap {
+  padding: 4px 12px;
+  border-radius: 10px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  box-shadow: 0 4px 0 var(--ink);
+  animation: kbd-tap 1.2s ease-in-out infinite;
+}
+
+.kbd-switch-cap:last-child {
+  animation-delay: 0.15s;
+}
+
+/* ---------- Ekrandagi klaviatura ---------- */
+
+.kbd-board {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--g);
+  margin: 0 auto 12px;
+  padding: calc(var(--g) * 2);
+  border-radius: calc(var(--k) * 0.3);
+  background: #cfd9e6;
+  border: 4px solid var(--ink);
+}
+
+.kbd-row {
+  display: flex;
+  gap: var(--g);
+}
+
+.kbd-key {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: calc(var(--k) * var(--w) + var(--g) * (var(--w) - 1));
+  height: var(--k);
+  border-radius: calc(var(--k) * 0.2);
+  background: #fff;
+  box-shadow: 0 calc(var(--k) * 0.07) 0 #9aa9bd;
+  font-size: calc(var(--k) * 0.46);
+  font-weight: 900;
+  line-height: 1;
+  touch-action: manipulation;
+}
+
+.kbd-wide {
+  font-size: calc(var(--k) * 0.24);
+  background: #eef2f7;
+}
+
+.kbd-space {
+  background: #eef2f7;
+}
+
+/* F va J dagi bo'rtmalar — haqiqiy klaviaturadagi kabi */
+.kbd-home::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  width: 30%;
+  height: 6%;
+  border-radius: 99px;
+  background: #9aa9bd;
+}
+
+.kbd-hint {
+  background: var(--sun);
+  box-shadow: 0 calc(var(--k) * 0.07) 0 #e9a91f, 0 0 0 calc(var(--k) * 0.08) rgb(255 201 74 / 0.45);
+  animation: kbd-pulse 0.9s ease-in-out infinite;
+  z-index: 1;
+}
+
+.kbd-ok {
+  animation: kbd-ok 0.35s;
+}
+
+.kbd-no {
+  animation: kbd-no 0.4s;
+}
+
+/* ---------- Yo'riqnoma yonidagi animatsiya ---------- */
+
+.kbd-demo {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 96px;
+  height: 88px;
+}
+
+.kbd-demo-cap {
+  display: grid;
+  place-items: center;
+  min-width: 62px;
+  height: 62px;
+  padding: 0 10px;
+  border-radius: 14px;
+  background: #fff;
+  border: 4px solid var(--ink);
+  box-shadow: 0 8px 0 var(--sky);
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1;
+  animation: kbd-demo-press 1.3s ease-in-out infinite;
+}
+
+.kbd-demo-wide {
+  min-width: 92px;
+  font-size: 17px;
+}
+
+/* ---------- Animatsiyalar ---------- */
+
+@keyframes kbd-pulse {
+  50% { transform: scale(1.1); }
+}
+
+@keyframes kbd-ok {
+  0% { background: var(--leaf); transform: translateY(8%); }
+  100% { background: #fff; }
+}
+
+@keyframes kbd-no {
+  0%, 100% { transform: none; }
+  25% { transform: translateX(-8%); background: #ffe1dc; }
+  75% { transform: translateX(8%); background: #ffe1dc; }
+}
+
+@keyframes kbd-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+
+@keyframes kbd-cheer {
+  40% { transform: scale(1.08); }
+}
+
+@keyframes kbd-hop {
+  0% { transform: translate(-90%, 0); }
+  50% { transform: translate(-45%, -45%); }
+  100% { transform: none; }
+}
+
+@keyframes kbd-tap {
+  0%, 60%, 100% { transform: none; box-shadow: 0 4px 0 var(--ink); }
+  30% { transform: translateY(4px); box-shadow: 0 0 0 var(--ink); }
+}
+
+@keyframes kbd-demo-press {
+  0%, 55%, 100% { transform: none; box-shadow: 0 8px 0 var(--sky); background: #fff; }
+  25% { transform: translateY(7px); box-shadow: 0 1px 0 var(--sky); background: var(--sun); }
+}

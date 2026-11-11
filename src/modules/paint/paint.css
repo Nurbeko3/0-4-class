@@ -1,0 +1,135 @@
+/* ---------- Rasm chizish ---------- */
+
+.pn-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  background: #f6ecdb;
+}
+
+.pn-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  gap: 12px;
+}
+
+.pn-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pn-btn {
+  display: grid;
+  place-items: center;
+  width: clamp(56px, 9vh, 84px);
+  height: clamp(56px, 9vh, 84px);
+  flex: none;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--ink);
+  font-size: clamp(32px, 5.4vh, 50px);
+  box-shadow: 0 5px 0 var(--line);
+  transition: transform 0.08s, box-shadow 0.08s, background 0.15s;
+}
+
+.pn-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--line);
+}
+
+.pn-btn.on {
+  background: var(--sun);
+  box-shadow: 0 5px 0 #e9a91f;
+}
+
+.pn-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.pn-btn.done {
+  margin-top: auto;
+  background: var(--teal);
+  color: #fff;
+  box-shadow: 0 5px 0 var(--teal-d);
+}
+
+.pn-btn.done.ready {
+  animation: pn-ready 1.6s ease-in-out infinite;
+}
+
+@keyframes pn-ready {
+  50% { box-shadow: 0 5px 0 var(--teal-d), 0 0 0 9px rgb(43 179 163 / 0.25); }
+}
+
+.pn-wrap {
+  flex: 1;
+  min-width: 0;
+  container-type: size;
+  display: grid;
+  place-items: center;
+}
+
+.pn-canvas {
+  /* 16:9 nisbatni saqlab, bo'sh joyga sig'adigan eng katta o'lcham */
+  width: min(100cqw, 100cqh * 16 / 9);
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 0 0 4px var(--line);
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.pn-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pn-color {
+  width: clamp(44px, 7vh, 62px);
+  height: clamp(44px, 7vh, 62px);
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 0 0 3px var(--line);
+  transition: transform 0.12s;
+}
+
+.pn-color.on {
+  transform: scale(1.18);
+  box-shadow: 0 0 0 4px var(--ink);
+}
+
+.pn-sizes {
+  display: flex;
+  gap: 8px;
+  margin-left: 18px;
+  padding-left: 18px;
+  border-left: 4px solid var(--line);
+}
+
+.pn-size {
+  display: grid;
+  place-items: center;
+  width: clamp(44px, 7vh, 62px);
+  height: clamp(44px, 7vh, 62px);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 0 0 3px var(--line);
+}
+
+.pn-size.on {
+  box-shadow: 0 0 0 4px var(--ink);
+}
+
+.pn-size i {
+  border-radius: 50%;
+  background: var(--ink);
+}

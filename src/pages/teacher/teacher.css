@@ -1,0 +1,334 @@
+/* ---------- O'qituvchi rejimi ---------- */
+
+/* PIN kiritish */
+
+.tc-pin {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 16px 20px 48px;
+}
+
+.tc-pin h1 {
+  font-size: clamp(24px, 3.4vw, 38px);
+  font-weight: 900;
+  text-align: center;
+}
+
+.tc-dots {
+  display: flex;
+  gap: 18px;
+}
+
+.tc-dots i {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 4px solid var(--ink);
+}
+
+.tc-dots i.on {
+  background: var(--ink);
+}
+
+.tc-error {
+  min-height: 28px;
+  color: #c2410c;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.tc-keys {
+  display: grid;
+  grid-template-columns: repeat(3, 88px);
+  gap: 14px;
+}
+
+.tc-keys button {
+  display: grid;
+  place-items: center;
+  height: 78px;
+  border-radius: 22px;
+  background: #fff;
+  font-size: 34px;
+  font-weight: 900;
+  box-shadow: 0 6px 0 var(--line);
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+
+.tc-keys button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--line);
+}
+
+.tc-keys .erase {
+  color: var(--ink-soft);
+}
+
+/* Panel */
+
+.tc-title {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.tc-headbtns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+  white-space: nowrap;
+  box-shadow: 0 4px 0 var(--line);
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+
+.tc-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.tc-btn svg {
+  font-size: 20px;
+}
+
+.tc-btn.on,
+.tc-btn.primary {
+  background: var(--teal);
+  color: #fff;
+  box-shadow: 0 4px 0 var(--teal-d);
+}
+
+.tc-btn.warn {
+  background: #ffe1dc;
+  color: #a8321f;
+  box-shadow: 0 4px 0 #f3b9af;
+}
+
+.tc-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.tc-main {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tc-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tc-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+  padding: 0 24px;
+  border-radius: 18px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 900;
+  border: 4px solid var(--c);
+}
+
+.tc-tab.on {
+  background: var(--c);
+  color: #fff;
+}
+
+.tc-tab svg {
+  font-size: 20px;
+}
+
+.tc-gradebar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 19px;
+}
+
+.tc-gradebar strong {
+  color: #a8321f;
+}
+
+.tc-gradebar .tc-btn {
+  margin-left: auto;
+}
+
+.tc-topic {
+  padding: 18px 22px 22px;
+  border-radius: var(--r);
+  background: var(--card);
+  border: 3px solid var(--line);
+}
+
+.tc-topichead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.tc-topichead .topic-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  font-size: 38px;
+}
+
+.tc-topichead h2 {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.tc-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .tc-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tc-plan {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tc-plan dt {
+  color: var(--ink-soft);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tc-plan dd {
+  margin: 2px 0 0;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.tc-levels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tc-levels li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--c) 12%, #fff);
+}
+
+.tc-num {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--c);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.tc-art {
+  font-size: 44px;
+  line-height: 0;
+}
+
+.tc-name {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.tc-name svg {
+  font-size: 24px;
+}
+
+.tc-lock {
+  min-width: 118px;
+}
+
+.tc-danger {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 16px 22px;
+  border-radius: var(--r);
+  border: 3px dashed var(--line);
+  font-size: 19px;
+}
+
+/* Bosh sahifadagi ko'zga tashlanmaydigan havola */
+
+.tc-foot {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px 14px;
+}
+
+.tc-foot a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.tc-foot a:hover {
+  background: rgb(45 58 74 / 0.06);
+}
+
+.tc-foot svg {
+  font-size: 18px;
+}

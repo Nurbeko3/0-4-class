@@ -1,0 +1,246 @@
+/* ---------- Nishonlar (bulut, shar, sovg'a, chiroq) ---------- */
+
+.target {
+  position: absolute;
+  /* markazlash `translate` bilan — `transform` animatsiyalar uchun bo'sh qoladi */
+  translate: -50% -50%;
+  line-height: 0;
+  border-radius: 50%;
+}
+
+.bob {
+  animation: bob 3.2s ease-in-out infinite;
+}
+
+.burst {
+  animation: burst 0.3s forwards;
+  pointer-events: none;
+}
+
+.pop-in {
+  animation: pop-in 0.45s both;
+}
+
+.wiggle {
+  animation: wiggle 0.45s;
+}
+
+@keyframes bob {
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes burst {
+  40% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+@keyframes wiggle {
+  20% { transform: rotate(-9deg); }
+  50% { transform: rotate(8deg); }
+  80% { transform: rotate(-4deg); }
+}
+
+/* ---------- Sudrab tashlash ---------- */
+
+.dragfield {
+  /* o'lchamlar maydon balandligiga nisbatan (cqh) — uylar yuqorida, hayvonlar pastda */
+  container-type: size;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  padding: 12px 4%;
+}
+
+.dragcol {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dragslot,
+.den {
+  position: relative;
+  width: min(220px, 36cqh, 19cqw);
+  height: min(220px, 36cqh, 19cqw);
+  font-size: min(220px, 36cqh, 19cqw);
+  line-height: 0;
+}
+
+.den {
+  width: min(260px, 42cqh, 22cqw);
+  height: min(260px, 42cqh, 22cqw);
+  font-size: min(260px, 42cqh, 22cqw);
+}
+
+.animal {
+  position: relative;
+  z-index: 1;
+  cursor: grab;
+  touch-action: none;
+  /* qo'yib yuborilganda joyiga yumshoq prujina bilan qaytadi */
+  transition: transform 0.38s var(--ease-spring-soft);
+}
+
+.animal.dragging {
+  z-index: 5;
+  cursor: grabbing;
+  transition: none;
+  filter: drop-shadow(0 12px 10px rgb(45 58 74 / 0.25));
+}
+
+.resident {
+  position: absolute;
+  right: -8%;
+  bottom: -6%;
+  font-size: 0.55em;
+}
+
+/* ---------- G'ildirak ---------- */
+
+.scrollfield {
+  touch-action: auto;
+}
+
+.scroller {
+  position: absolute;
+  inset: 0;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  outline-offset: -4px;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.sea {
+  position: relative;
+  height: 520%;
+  background: linear-gradient(#cfeafc 0%, #cfeafc 17%, #58b9ea 19%, #2f86c9 55%, #173f73 100%);
+}
+
+.sea-item {
+  position: absolute;
+  translate: -50% 0;
+  line-height: 0;
+}
+
+.sea-item.glow {
+  filter: drop-shadow(0 0 22px #ffe89a);
+}
+
+.swim {
+  animation: swim 5s ease-in-out infinite;
+}
+
+@keyframes swim {
+  50% { transform: translateX(46px); }
+}
+
+.scroll-arrow {
+  position: absolute;
+  right: 26px;
+  bottom: 26px;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 5px 0 rgb(45 58 74 / 0.2);
+  pointer-events: none;
+  animation: nudge 1s ease-in-out infinite;
+}
+
+.scroll-arrow::after {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 19px;
+  width: 26px;
+  height: 26px;
+  border-right: 9px solid var(--teal);
+  border-bottom: 9px solid var(--teal);
+  border-radius: 4px;
+  transform: rotate(45deg);
+}
+
+.scroll-arrow.up {
+  top: 26px;
+  bottom: auto;
+  rotate: 180deg;
+}
+
+@keyframes nudge {
+  50% { transform: translateY(10px); }
+}
+
+/* ---------- Animatsion ko'rsatma (sichqoncha) ---------- */
+
+.mdemo {
+  width: 74px;
+  height: 88px;
+  flex: none;
+}
+
+.mdemo svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.mdemo-l,
+.mdemo-r {
+  fill: transparent;
+}
+
+.mdemo-w {
+  fill: #fff;
+}
+
+.mdemo-click .mdemo-l {
+  animation: press 1.6s infinite;
+}
+
+.mdemo-dbl .mdemo-l {
+  animation: press2 1.8s infinite;
+}
+
+.mdemo-right .mdemo-r {
+  animation: press 1.6s infinite;
+}
+
+.mdemo-move .mdemo-body,
+.mdemo-drag .mdemo-body {
+  animation: sway 2s ease-in-out infinite;
+}
+
+.mdemo-drag .mdemo-l {
+  fill: var(--coral);
+}
+
+.mdemo-scroll .mdemo-w {
+  animation: roll 1.1s ease-in-out infinite;
+}
+
+@keyframes press {
+  0%, 12% { fill: transparent; }
+  18%, 42% { fill: var(--coral); }
+  48%, 100% { fill: transparent; }
+}
+
+@keyframes press2 {
+  0%, 10% { fill: transparent; }
+  14%, 24% { fill: var(--coral); }
+  28%, 34% { fill: transparent; }
+  38%, 48% { fill: var(--coral); }
+  52%, 100% { fill: transparent; }
+}
+
+@keyframes sway {
+  0%, 100% { transform: translateX(-14px); }
+  50% { transform: translateX(14px); }
+}
+
+@keyframes roll {
+  0%, 100% { fill: #fff; transform: translateY(-3px); }
+  50% { fill: var(--teal); transform: translateY(5px); }
+}

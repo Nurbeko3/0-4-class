@@ -1,0 +1,126 @@
+/* Internet xavfsizligi moduli. Barcha klasslar sf- bilan boshlanadi. */
+
+.sf-field {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#e2f5f2, #f1fbf9);
+}
+
+.sf-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 12px;
+}
+
+.sf-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--line);
+  transition: background 0.2s ease, transform 0.3s var(--ease-spring);
+}
+
+.sf-dot-on {
+  background: var(--sun);
+  border-color: #e9a91f;
+  transform: scale(1.15);
+}
+
+.sf-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4vw;
+  padding: 10px 24px 18px;
+  animation: fade-up 0.35s both;
+}
+
+.sf-scene {
+  flex: none;
+  width: min(42vw, 62vh, 460px);
+  height: auto;
+}
+
+.sf-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: min(46vw, 520px);
+}
+
+.sf-card {
+  min-height: 76px;
+  padding: 12px 22px;
+  border-radius: 22px;
+  background: #fff;
+  border: 4px solid var(--ink);
+  box-shadow: 0 6px 0 var(--ink);
+  font-size: clamp(19px, 2vw, 26px);
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: left;
+  transition: transform var(--release) var(--ease-spring-soft), box-shadow var(--release) var(--ease-out), opacity 0.2s ease, background 0.2s ease;
+}
+
+.sf-card:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 var(--ink);
+  transition-duration: var(--press);
+  transition-timing-function: var(--ease-out);
+}
+
+/* Noto'g'ri tanlov: qizil xoch yo'q — karta shunchaki xiralashadi */
+.sf-card-no {
+  opacity: 0.45;
+  border-style: dashed;
+  box-shadow: none;
+  cursor: default;
+  animation: sf-shake 0.4s;
+}
+
+.sf-card-off {
+  opacity: 0.45;
+  box-shadow: none;
+  cursor: default;
+}
+
+.sf-card-yes {
+  background: var(--leaf);
+  border-color: #2f9460;
+  box-shadow: 0 6px 0 #2f9460;
+  color: #fff;
+  cursor: default;
+  animation: sf-cheer 0.45s;
+}
+
+.sf-next {
+  align-self: flex-end;
+  animation: pop-in 0.35s both;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .sf-body {
+    flex-direction: column;
+  }
+
+  .sf-scene {
+    width: min(70vw, 34vh);
+  }
+
+  .sf-cards {
+    width: 100%;
+  }
+}
+
+@keyframes sf-shake {
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+@keyframes sf-cheer {
+  40% { transform: scale(1.04); }
+}

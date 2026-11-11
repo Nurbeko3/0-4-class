@@ -1,0 +1,131 @@
+/* ---------- Kompyuter qismlari ---------- */
+
+.pt-field {
+  container-type: size;
+  display: flex;
+  flex-direction: column;
+  gap: 2cqh;
+  padding: 2cqh 2cqw;
+  background: linear-gradient(#efeafc, #e3dcf8);
+}
+
+.pt-cards {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: 1.4cqw;
+}
+
+.pt-card {
+  position: relative;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1cqh;
+  padding: 2cqh 1cqw;
+  border-radius: 24px;
+  background: #fff;
+  border: 4px solid #d6ccf3;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.pt-card.ok {
+  border-color: var(--leaf);
+  background: #f2fbf5;
+}
+
+.pt-art {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  transition: filter 0.3s, opacity 0.3s;
+}
+
+/* Soya: rasmning faqat shakli ko'rinadi */
+.pt-shadow {
+  filter: brightness(0);
+  opacity: 0.16;
+}
+
+.pt-caption {
+  font-size: clamp(16px, 3.4cqh, 24px);
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.pt-slot {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: clamp(48px, 10cqh, 72px);
+  padding: 4px 8px;
+  border-radius: 16px;
+  border: 3px dashed #c3b7ea;
+  font-size: clamp(15px, 3.6cqh, 26px);
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.pt-slot.filled {
+  border: 3px solid var(--leaf);
+  background: var(--leaf);
+  color: #fff;
+}
+
+.pt-tray {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1cqw;
+  min-height: clamp(70px, 17cqh, 130px);
+  padding: 1cqh 1cqw;
+  border-radius: 24px;
+  background: rgb(255 255 255 / 0.6);
+}
+
+.pt-chipslot {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+
+.pt-chip {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  max-width: 100%;
+  min-height: clamp(52px, 11cqh, 76px);
+  padding: 6px clamp(12px, 1.6cqw, 28px);
+  border-radius: 18px;
+  background: var(--violet);
+  color: #fff;
+  font-size: clamp(15px, 3.6cqh, 26px);
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+  box-shadow: 0 6px 0 #7767c9;
+  cursor: grab;
+  touch-action: none;
+  /* qo'yib yuborilganda joyiga yumshoq prujina bilan qaytadi */
+  transition: transform 0.38s var(--ease-spring-soft);
+}
+
+.pt-chip.match {
+  width: clamp(90px, 21cqh, 170px);
+  padding: 6px;
+  background: #fff;
+  box-shadow: 0 6px 0 #d6ccf3;
+}
+
+.pt-chip.dragging {
+  z-index: 5;
+  cursor: grabbing;
+  transition: none;
+  box-shadow: 0 14px 18px rgb(45 58 74 / 0.25);
+}
