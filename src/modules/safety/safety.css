@@ -1,6 +1,7 @@
 /* Internet xavfsizligi moduli. Barcha klasslar sf- bilan boshlanadi. */
 
 .sf-field {
+  container-type: size;
   display: flex;
   flex-direction: column;
   background: linear-gradient(#e2f5f2, #f1fbf9);
@@ -41,25 +42,26 @@
 
 .sf-scene {
   flex: none;
-  width: min(42vw, 62vh, 460px);
+  width: min(42cqw, 105cqh, 460px);
   height: auto;
 }
 
 .sf-cards {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: min(14px, 2.4cqh);
   width: min(46vw, 520px);
 }
 
 .sf-card {
-  min-height: 76px;
-  padding: 12px 22px;
+  /* Past ekranda (1366x768) uchta karta va "Keyingisi" tugmasi sig'ishi uchun maydonga nisbatan */
+  min-height: min(76px, 15cqh);
+  padding: 8px 20px;
   border-radius: 22px;
   background: #fff;
   border: 4px solid var(--ink);
   box-shadow: 0 6px 0 var(--ink);
-  font-size: clamp(19px, 2vw, 26px);
+  font-size: clamp(18px, min(2vw, 5.2cqh), 26px);
   font-weight: 800;
   line-height: 1.2;
   text-align: left;
@@ -98,6 +100,7 @@
 }
 
 .sf-next {
+  min-height: min(68px, 14cqh);
   align-self: flex-end;
   animation: pop-in 0.35s both;
 }

@@ -1,0 +1,284 @@
+/* Raqam bo'yicha bo'yash moduli. Barcha klasslar cl- bilan boshlanadi. */
+
+.cl-field {
+  display: flex;
+  gap: 16px;
+  padding: 14px;
+  background: linear-gradient(#fff3e2, #ffe9d6);
+}
+
+/* ---------- Rasm tanlash ---------- */
+
+.cl-gallery {
+  container-type: size;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  gap: 3cqh 2.4cqw;
+}
+
+.cl-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5cqh;
+  width: min(27cqw, 300px);
+  height: min(42cqh, 250px);
+  border-radius: 28px;
+  background: #fff;
+  border: 4px solid #f3d9bd;
+  box-shadow: 0 7px 0 #f3d9bd;
+  font-size: min(24cqh, 150px);
+  transition: transform var(--release) var(--ease-spring-soft), box-shadow var(--release) var(--ease-out);
+  animation: rise 0.45s var(--ease-out) backwards;
+}
+
+.cl-thumb:nth-child(2) { animation-delay: 50ms; }
+.cl-thumb:nth-child(3) { animation-delay: 100ms; }
+.cl-thumb:nth-child(4) { animation-delay: 150ms; }
+.cl-thumb:nth-child(5) { animation-delay: 200ms; }
+.cl-thumb:nth-child(6) { animation-delay: 250ms; }
+
+.cl-thumb svg {
+  width: auto;
+  max-width: 80%;
+  transition: transform 0.3s var(--ease-spring);
+}
+
+.cl-thumb span {
+  font-size: clamp(17px, 4cqh, 24px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cl-thumb:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 11px 0 #f3d9bd;
+  }
+
+  .cl-thumb:hover svg {
+    transform: scale(1.08) rotate(-3deg);
+  }
+}
+
+.cl-thumb:active {
+  transform: translateY(4px);
+  box-shadow: 0 3px 0 #f3d9bd;
+  transition-duration: var(--press);
+  transition-timing-function: var(--ease-out);
+}
+
+/* ---------- Bo'yash maydoni ---------- */
+
+.cl-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cl-stage {
+  flex: 1;
+  min-height: 0;
+  container-type: size;
+  display: grid;
+  place-items: center;
+}
+
+.cl-grid {
+  /* Katak o'lchami: maydon bo'yiga ham, eniga ham sig'adi */
+  --s: min(calc(99cqh / var(--rows)), calc(99cqw / var(--cols)), 76px);
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--s));
+  grid-auto-rows: var(--s);
+  cursor: crosshair;
+  animation: pop-in 0.4s both;
+}
+
+.cl-cell {
+  display: grid;
+  place-items: center;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #e3cfb6;
+  color: #7c6a58;
+  font-size: calc(var(--s) * 0.46);
+  font-weight: 900;
+  line-height: 1;
+  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.4s var(--ease-out);
+}
+
+.cl-math .cl-cell {
+  font-size: calc(var(--s) * 0.34);
+  letter-spacing: -0.02em;
+}
+
+.cl-empty {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Tayyorlov sinfi: har katak o'z rangining och tusida — raqamni endi o'rganayotganlar uchun */
+.cl-tinted .cl-cell:not(.cl-empty):not(.cl-on) {
+  background: color-mix(in srgb, var(--c) 24%, #fff);
+}
+
+/* Tanlangan rangning kataklari ajralib turadi — faqat 0–1-sinfda (yuqorida misolni o'zi yechadi) */
+.cl-cell.cl-hot {
+  background: color-mix(in srgb, var(--c) 34%, #fff);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--c) 80%, #2d3a4a);
+  color: var(--ink);
+}
+
+.cl-tinted .cl-cell.cl-hot {
+  background: color-mix(in srgb, var(--c) 46%, #fff);
+}
+
+.cl-cell.cl-on {
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgb(45 58 74 / 0.12);
+  animation: cl-fill 0.26s var(--ease-out);
+}
+
+.cl-cell.cl-nope {
+  animation: cl-nope 0.36s var(--ease-out);
+}
+
+/* Rasm tayyor: katak chiziqlari yo'qoladi va rasm "jonlanadi" */
+.cl-done .cl-cell.cl-on {
+  box-shadow: none;
+}
+
+.cl-done .cl-grid {
+  cursor: default;
+  animation: cl-cheer 0.7s 0.25s var(--ease-in-out);
+}
+
+.cl-progress {
+  flex: none;
+  height: 14px;
+  border-radius: 99px;
+  background: #fff;
+  box-shadow: inset 0 0 0 3px #f3d9bd;
+  overflow: hidden;
+}
+
+.cl-progress span {
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  background: var(--leaf);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-out);
+}
+
+/* ---------- Palitra ---------- */
+
+.cl-palette {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: min(14px, 1.6vh);
+  padding: 4px 6px 8px;
+}
+
+.cl-swatch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 190px;
+  height: min(78px, 11vh);
+  padding: 0 18px 0 10px;
+  border-radius: 22px;
+  background: #fff;
+  border: 4px solid color-mix(in srgb, var(--c) 70%, #2d3a4a);
+  box-shadow: 0 6px 0 color-mix(in srgb, var(--c) 70%, #2d3a4a);
+  transition: transform var(--release) var(--ease-spring-soft), box-shadow var(--release) var(--ease-out),
+    background 0.2s ease, opacity 0.2s ease;
+}
+
+.cl-swatch b {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: min(54px, 7.6vh);
+  height: min(54px, 7.6vh);
+  border-radius: 16px;
+  background: var(--c);
+  color: var(--ink);
+  font-size: min(30px, 4.4vh);
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: inset 0 2px 0 rgb(255 255 255 / 0.35);
+}
+
+.cl-swatch span {
+  font-size: clamp(16px, 2.6vh, 21px);
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.cl-swatch:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--c) 70%, #2d3a4a);
+  transition-duration: var(--press);
+  transition-timing-function: var(--ease-out);
+}
+
+.cl-swatch.cl-sel {
+  background: color-mix(in srgb, var(--c) 22%, #fff);
+  transform: translateX(-10px) scale(1.04);
+}
+
+.cl-swatch.cl-finished {
+  opacity: 0.55;
+  cursor: default;
+  transform: none;
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--c) 70%, #2d3a4a);
+}
+
+.cl-swatch.cl-finished b svg {
+  animation: pop-in 0.35s both;
+}
+
+/* Tor/baland oyna: palitra pastga tushadi */
+@media (max-aspect-ratio: 1/1) {
+  .cl-field:not(.cl-gallery) {
+    flex-direction: column;
+  }
+
+  .cl-palette {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .cl-swatch {
+    min-width: 0;
+  }
+
+  .cl-swatch.cl-sel {
+    transform: translateY(-6px) scale(1.04);
+  }
+}
+
+/* ---------- Animatsiyalar ---------- */
+
+@keyframes cl-fill {
+  from { transform: scale(0.72); }
+}
+
+@keyframes cl-nope {
+  25% { transform: translateX(-10%); }
+  75% { transform: translateX(10%); }
+}
+
+@keyframes cl-cheer {
+  35% { transform: scale(1.06) rotate(-2deg); }
+  70% { transform: scale(1.03) rotate(2deg); }
+}

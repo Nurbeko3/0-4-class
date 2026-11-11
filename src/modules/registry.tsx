@@ -23,6 +23,8 @@ import { ScenarioQuiz } from './safety/ScenarioQuiz'
 import { QuizIcon } from './safety/safetyArt'
 import { PaintGame } from './paint/PaintGame'
 import { PaletteIcon } from './paint/paintArt'
+import { ColoringGame } from './coloring/ColoringGame'
+import { NumbersIcon } from './coloring/clArt'
 
 export interface GameProps {
   grade: number
@@ -68,6 +70,7 @@ export const GAMES: Record<GameId, GameDef> = {
   // Internet xavfsizligi
   'safety.quiz': { title: 'safety.quiz.title', say: 'say.safety.quiz', Demo: mouse('click'), icon: QuizIcon, component: ScenarioQuiz },
   'paint.free': { title: 'paint.free.title', say: 'say.paint.free', Demo: mouse('drag'), icon: PaletteIcon, component: PaintGame },
+  'paint.numbers': { title: 'paint.numbers.title', say: 'say.paint.numbers', Demo: mouse('click'), icon: NumbersIcon, component: ColoringGame },
 }
 
 export const TOPICS: Record<TopicId, { title: StrKey; icon: ComponentType<{ className?: string }>; color: string }> = {

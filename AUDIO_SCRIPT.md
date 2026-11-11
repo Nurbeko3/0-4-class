@@ -76,3 +76,5 @@ Bu ro'yxat `node scripts/gen-audio.mjs` bilan yangilanadi.
 | `say.safety.time.yes.mp3` | To’g’ri! Ko’z va gavda dam olishi kerak. Tanaffus qil, harakatlan. | Верно! Глазам и телу нужен отдых. Сделай перерыв, подвигайся. |
 | `say.safety.time.no.mp3` | Uzoq o’tirish ko’zni charchatadi. Boshqa javobni tanla. | От долгого сидения устают глаза. Выбери другой ответ. |
 | `say.paint.free.mp3` | Rang tanla va rasm chiz! Tayyor bo’lsa, yashil tugmani bos. | Выбери цвет и рисуй! Когда закончишь, нажми зелёную кнопку. |
+| `say.paint.numbers.mp3` | Rasm tanla! Keyin rangni tanlab, shu raqam yozilgan kataklarni bo’ya. | Выбери картинку! Потом выбери цвет и закрась клетки с его номером. |
+| `say.paint.numbers.math.mp3` | Misolni yech! Javobi qaysi rang ekanini aytadi. Rangni tanla va katakni bo’ya. | Реши пример! Ответ подскажет цвет. Выбери цвет и закрась клетку. |

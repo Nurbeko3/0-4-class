@@ -23,6 +23,7 @@ export type GameId =
   | 'desk.sort'
   | 'safety.quiz'
   | 'paint.free'
+  | 'paint.numbers'
 
 export type TopicId = 'mouse' | 'keyboard' | 'parts' | 'desktop' | 'paint' | 'robot' | 'safety'
 
@@ -47,13 +48,13 @@ export const CURRICULUM: Record<number, Topic[]> = {
   0: [
     { id: 'mouse', levels: ['mouse.point', 'mouse.click', 'mouse.drag'] },
     { id: 'parts', levels: ['parts.match'] },
-    { id: 'paint', levels: ['paint.free'] },
+    { id: 'paint', levels: ['paint.free', 'paint.numbers'] },
   ],
   1: [
     { id: 'mouse', levels: ALL_MOUSE },
     { id: 'keyboard', levels: KBD_FIND },
     { id: 'parts', levels: ['parts.match', 'parts.name'] },
-    { id: 'paint', levels: ['paint.free'] },
+    { id: 'paint', levels: ['paint.free', 'paint.numbers'] },
     { id: 'robot', levels: ROBOT_1 },
   ],
   2: [
@@ -61,7 +62,7 @@ export const CURRICULUM: Record<number, Topic[]> = {
     { id: 'keyboard', levels: KBD_ALL },
     { id: 'parts', levels: ['parts.name'] },
     { id: 'desktop', levels: ['desk.open', 'desk.file'] },
-    { id: 'paint', levels: ['paint.free'] },
+    { id: 'paint', levels: ['paint.free', 'paint.numbers'] },
     { id: 'robot', levels: ROBOT_1 },
   ],
   3: [
@@ -69,7 +70,7 @@ export const CURRICULUM: Record<number, Topic[]> = {
     { id: 'keyboard', levels: KBD_ALL },
     { id: 'parts', levels: ['parts.name', 'parts.use'] },
     { id: 'desktop', levels: ['desk.open', 'desk.file', 'desk.sort'] },
-    { id: 'paint', levels: ['paint.free'] },
+    { id: 'paint', levels: ['paint.free', 'paint.numbers'] },
     { id: 'robot', levels: ROBOT_3 },
     { id: 'safety', levels: ['safety.quiz'] },
   ],
@@ -77,7 +78,7 @@ export const CURRICULUM: Record<number, Topic[]> = {
     { id: 'keyboard', levels: KBD_ALL },
     { id: 'parts', levels: ['parts.name', 'parts.use'] },
     { id: 'desktop', levels: ['desk.open', 'desk.file', 'desk.sort'] },
-    { id: 'paint', levels: ['paint.free'] },
+    { id: 'paint', levels: ['paint.free', 'paint.numbers'] },
     { id: 'robot', levels: ROBOT_4 },
     { id: 'safety', levels: ['safety.quiz'] },
   ],
