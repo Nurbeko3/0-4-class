@@ -117,7 +117,7 @@
 }
 
 .pt-chip.match {
-  width: clamp(90px, 21cqh, 170px);
+  width: clamp(100px, 27cqh, 180px);
   padding: 6px;
   background: #fff;
   box-shadow: 0 6px 0 #d6ccf3;

@@ -55,13 +55,13 @@
 .kbd-letter {
   display: grid;
   place-items: center;
-  width: min(26cqh, 220px);
-  height: min(26cqh, 220px);
+  width: min(24cqh, 220px);
+  height: min(24cqh, 220px);
   border-radius: 22%;
   background: #fff;
   border: 6px solid var(--ink);
   box-shadow: 0 12px 0 var(--sky);
-  font-size: min(17.5cqh, 150px);
+  font-size: min(16cqh, 150px);
   font-weight: 900;
   line-height: 1;
   animation: pop-in 0.35s both;

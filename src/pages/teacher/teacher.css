@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   gap: 18px;
-  padding: 16px 20px 48px;
+  padding: 16px 20px clamp(12px, 5vh, 48px);
 }
 
 .tc-pin h1 {
