@@ -24,8 +24,26 @@ export type GameId =
   | 'safety.quiz'
   | 'paint.free'
   | 'paint.numbers'
+  | 'paintlab.fill'
+  | 'paintlab.shapes'
+  | 'paintlab.eraser'
+  | 'paintlab.mirror'
+  | 'logic.odd'
+  | 'logic.pattern'
+  | 'logic.memory'
+  | 'excel.cell'
+  | 'excel.type'
+  | 'excel.sum'
+  | 'excel.chart'
+  | 'word.format'
+  | 'word.align'
+  | 'word.poster'
+  | 'keys.copy'
+  | 'keys.cut'
+  | 'keys.undo'
+  | 'keys.save'
 
-export type TopicId = 'mouse' | 'keyboard' | 'parts' | 'desktop' | 'paint' | 'robot' | 'safety'
+export type TopicId = 'mouse' | 'keyboard' | 'parts' | 'desktop' | 'paint' | 'word' | 'keys' | 'logic' | 'robot' | 'excel' | 'safety'
 
 export interface Topic {
   id: TopicId
@@ -43,18 +61,35 @@ const ROBOT_1: GameId[] = ['robot.arrows']
 const ROBOT_3: GameId[] = [...ROBOT_1, 'robot.repeat']
 const ROBOT_4: GameId[] = [...ROBOT_3, 'robot.nested']
 
+// Mantiq: hamma sinfda uch daraja, qiyinligi sinfga qarab o'sadi.
+const LOGIC: GameId[] = ['logic.odd', 'logic.pattern', 'logic.memory']
+// Rasm: erkin rasm va raqamli bo'yash — hamma sinfda; Paint asboblari 1-sinfdan qo'shila boradi.
+const PAINT_0: GameId[] = ['paint.free', 'paint.numbers']
+const PAINT_1: GameId[] = [...PAINT_0, 'paintlab.fill', 'paintlab.shapes']
+const PAINT_2: GameId[] = [...PAINT_1, 'paintlab.eraser']
+const PAINT_3: GameId[] = [...PAINT_2, 'paintlab.mirror']
+// Jadval (Excel): 3–4-sinf.
+const EXCEL: GameId[] = ['excel.cell', 'excel.type', 'excel.sum', 'excel.chart']
+// Matn muharriri (Word): 2-sinfdan; tezkor tugmalar (Ctrl+C va h.k.): 3–4-sinf.
+const WORD_2: GameId[] = ['word.format', 'word.align']
+const WORD_3: GameId[] = [...WORD_2, 'word.poster']
+const KEYS_3: GameId[] = ['keys.copy', 'keys.cut', 'keys.undo']
+const KEYS_4: GameId[] = [...KEYS_3, 'keys.save']
+
 // Darajasi bo'sh mavzu xaritada "Tez kunda" bo'lib ko'rinadi.
 export const CURRICULUM: Record<number, Topic[]> = {
   0: [
     { id: 'mouse', levels: ['mouse.point', 'mouse.click', 'mouse.drag'] },
     { id: 'parts', levels: ['parts.match'] },
-    { id: 'paint', levels: ['paint.free', 'paint.numbers'] },
+    { id: 'paint', levels: PAINT_0 },
+    { id: 'logic', levels: LOGIC },
   ],
   1: [
     { id: 'mouse', levels: ALL_MOUSE },
     { id: 'keyboard', levels: KBD_FIND },
     { id: 'parts', levels: ['parts.match', 'parts.name'] },
-    { id: 'paint', levels: ['paint.free', 'paint.numbers'] },
+    { id: 'paint', levels: PAINT_1 },
+    { id: 'logic', levels: LOGIC },
     { id: 'robot', levels: ROBOT_1 },
   ],
   2: [
@@ -62,24 +97,34 @@ export const CURRICULUM: Record<number, Topic[]> = {
     { id: 'keyboard', levels: KBD_ALL },
     { id: 'parts', levels: ['parts.name'] },
     { id: 'desktop', levels: ['desk.open', 'desk.file'] },
-    { id: 'paint', levels: ['paint.free', 'paint.numbers'] },
+    { id: 'word', levels: WORD_2 },
+    { id: 'paint', levels: PAINT_2 },
+    { id: 'logic', levels: LOGIC },
     { id: 'robot', levels: ROBOT_1 },
   ],
   3: [
     { id: 'mouse', levels: ALL_MOUSE },
     { id: 'keyboard', levels: KBD_ALL },
+    { id: 'keys', levels: KEYS_3 },
     { id: 'parts', levels: ['parts.name', 'parts.use'] },
     { id: 'desktop', levels: ['desk.open', 'desk.file', 'desk.sort'] },
-    { id: 'paint', levels: ['paint.free', 'paint.numbers'] },
+    { id: 'word', levels: WORD_3 },
+    { id: 'paint', levels: PAINT_3 },
+    { id: 'logic', levels: LOGIC },
     { id: 'robot', levels: ROBOT_3 },
+    { id: 'excel', levels: EXCEL },
     { id: 'safety', levels: ['safety.quiz'] },
   ],
   4: [
     { id: 'keyboard', levels: KBD_ALL },
+    { id: 'keys', levels: KEYS_4 },
     { id: 'parts', levels: ['parts.name', 'parts.use'] },
     { id: 'desktop', levels: ['desk.open', 'desk.file', 'desk.sort'] },
-    { id: 'paint', levels: ['paint.free', 'paint.numbers'] },
+    { id: 'word', levels: WORD_3 },
+    { id: 'paint', levels: PAINT_3 },
+    { id: 'logic', levels: LOGIC },
     { id: 'robot', levels: ROBOT_4 },
+    { id: 'excel', levels: EXCEL },
     { id: 'safety', levels: ['safety.quiz'] },
   ],
 }

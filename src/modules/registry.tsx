@@ -25,6 +25,12 @@ import { PaintGame } from './paint/PaintGame'
 import { PaletteIcon } from './paint/paintArt'
 import { ColoringGame } from './coloring/ColoringGame'
 import { NumbersIcon } from './coloring/clArt'
+import { MemoryGame, OddGame, PatternGame } from './logic/LogicGames'
+import { LogicIcon, MemoryIcon, OddIcon, PatternIcon } from './logic/lgArt'
+import * as Excel from './excel'
+import * as PaintLab from './paintlab'
+import * as Word from './word'
+import * as Keys from './shortcuts'
 
 export interface GameProps {
   grade: number
@@ -71,6 +77,29 @@ export const GAMES: Record<GameId, GameDef> = {
   'safety.quiz': { title: 'safety.quiz.title', say: 'say.safety.quiz', Demo: mouse('click'), icon: QuizIcon, component: ScenarioQuiz },
   'paint.free': { title: 'paint.free.title', say: 'say.paint.free', Demo: mouse('drag'), icon: PaletteIcon, component: PaintGame },
   'paint.numbers': { title: 'paint.numbers.title', say: 'say.paint.numbers', Demo: mouse('click'), icon: NumbersIcon, component: ColoringGame },
+  // Paint asboblari
+  'paintlab.fill': { title: 'paintlab.fill.title', say: 'say.paintlab.fill', Demo: mouse('click'), icon: PaintLab.FillIcon, component: PaintLab.PaintFill },
+  'paintlab.shapes': { title: 'paintlab.shapes.title', say: 'say.paintlab.shapes', Demo: mouse('drag'), icon: PaintLab.ShapesIcon, component: PaintLab.PaintShapes },
+  'paintlab.eraser': { title: 'paintlab.eraser.title', say: 'say.paintlab.eraser', Demo: mouse('drag'), icon: PaintLab.EraserIcon, component: PaintLab.PaintEraser },
+  'paintlab.mirror': { title: 'paintlab.mirror.title', say: 'say.paintlab.mirror', Demo: mouse('click'), icon: PaintLab.MirrorIcon, component: PaintLab.PaintMirror },
+  // Mantiq
+  'logic.odd': { title: 'logic.odd.title', say: 'say.logic.odd', Demo: mouse('click'), icon: OddIcon, component: OddGame },
+  'logic.pattern': { title: 'logic.pattern.title', say: 'say.logic.pattern', Demo: mouse('click'), icon: PatternIcon, component: PatternGame },
+  'logic.memory': { title: 'logic.memory.title', say: 'say.logic.memory', Demo: mouse('click'), icon: MemoryIcon, component: MemoryGame },
+  // Matn muharriri (Word)
+  'word.format': { title: 'word.format.title', say: 'say.word.format', Demo: Word.WordDemo, icon: Word.FormatIcon, component: Word.FormatGame },
+  'word.align': { title: 'word.align.title', say: 'say.word.align', Demo: Word.WordDemo, icon: Word.AlignIcon, component: Word.AlignGame },
+  'word.poster': { title: 'word.poster.title', say: 'say.word.poster', Demo: Word.WordDemo, icon: Word.PosterIcon, component: Word.PosterGame },
+  // Tezkor tugmalar
+  'keys.copy': { title: 'keys.copy.title', say: 'say.keys.copy', Demo: Keys.CopyDemo, icon: Keys.CopyIcon, component: Keys.CopyGame },
+  'keys.cut': { title: 'keys.cut.title', say: 'say.keys.cut', Demo: Keys.CutDemo, icon: Keys.CutIcon, component: Keys.CutGame },
+  'keys.undo': { title: 'keys.undo.title', say: 'say.keys.undo', Demo: Keys.UndoDemo, icon: Keys.UndoIcon, component: Keys.UndoGame },
+  'keys.save': { title: 'keys.save.title', say: 'say.keys.save', Demo: Keys.SaveDemo, icon: Keys.SaveIcon, component: Keys.SaveGame },
+  // Jadval (Excel)
+  'excel.cell': { title: 'excel.cell.title', say: 'say.excel.cell', Demo: mouse('click'), icon: Excel.CellIcon, component: Excel.ExcelCell },
+  'excel.type': { title: 'excel.type.title', say: 'say.excel.type', Demo: keyDemo('Enter', true), icon: Excel.TypeIcon, component: Excel.ExcelType },
+  'excel.sum': { title: 'excel.sum.title', say: 'say.excel.sum', Demo: mouse('click'), icon: Excel.SumIcon, component: Excel.ExcelSum },
+  'excel.chart': { title: 'excel.chart.title', say: 'say.excel.chart', Demo: mouse('click'), icon: Excel.ChartIcon, component: Excel.ExcelChart },
 }
 
 export const TOPICS: Record<TopicId, { title: StrKey; icon: ComponentType<{ className?: string }>; color: string }> = {
@@ -79,6 +108,10 @@ export const TOPICS: Record<TopicId, { title: StrKey; icon: ComponentType<{ clas
   parts: { title: 'topic.parts', icon: Art.MonitorIcon, color: 'var(--violet)' },
   desktop: { title: 'topic.desktop', icon: Art.FolderIcon, color: 'var(--sun)' },
   paint: { title: 'topic.paint', icon: Art.BrushIcon, color: 'var(--coral)' },
+  word: { title: 'topic.word', icon: Word.WordIcon, color: 'var(--sky)' },
+  keys: { title: 'topic.keys', icon: Keys.KeysIcon, color: 'var(--violet)' },
+  logic: { title: 'topic.logic', icon: LogicIcon, color: 'var(--coral)' },
+  excel: { title: 'topic.excel', icon: Excel.ExcelIcon, color: 'var(--leaf)' },
   robot: { title: 'topic.robot', icon: Art.RobotIcon, color: 'var(--leaf)' },
   safety: { title: 'topic.safety', icon: Art.ShieldIcon, color: 'var(--teal)' },
 }

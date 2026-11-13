@@ -1,5 +1,11 @@
 // BARCHA matnlar shu faylda. `say.` bilan boshlanadigan kalitlar ovozli
 // yo'riqnoma: har biri uchun /public/audio/{uz,ru}/<kalit>.mp3 fayli bor.
+// Yangi modullar matnlari o'z papkasida turadi (src/modules/<modul>/strings.ts) va shu yerda qo'shiladi.
+import { logicStrings } from '../modules/logic/strings.ts'
+import { wordStrings } from '../modules/word/strings.ts'
+import { keysStrings } from '../modules/shortcuts/strings.ts'
+import { excelStrings } from '../modules/excel/strings.ts'
+import { paintlabStrings } from '../modules/paintlab/strings.ts'
 
 export const strings = {
   uz: {
@@ -258,6 +264,11 @@ export const strings = {
     'lesson.safety.explain': 'Suhbatdan boshlang: internetda kim bilan gaplashamiz, hammasi ham tanishmi? Asosiy qoidani ayting: ism, manzil, telefon va parol — faqat yaqinlar uchun; biror narsa qo’rqitsa yoki xafa qilsa — darhol kattalarga aytiladi.',
     'lesson.safety.practice': 'Faqat 3–4-sinf: «Xavfsiz internet» — rasmli vaziyat va 2–3 ta javob. 3-sinfda 5 ta, 4-sinfda 8 ta vaziyat. Har javobdan keyin qisqa tushuntirish o’qiladi; noto’g’ri javobda bola boshqasini tanlaydi. Har vaziyatni proyektorda butun sinf bilan muhokama qilsa ham bo’ladi.',
     'lesson.safety.tip': 'Bolalar to’g’ri javobni yodlab emas, sababini tushunib tanlashi muhim — «nega?» deb so’rang. Bolalar o’z boshidan o’tgan voqealarni aytishi mumkin: tinglang va ayblamang.',
+    ...logicStrings.uz,
+    ...wordStrings.uz,
+    ...keysStrings.uz,
+    ...excelStrings.uz,
+    ...paintlabStrings.uz,
   },
   ru: {
     'app.title': 'Знакомство с компьютером',
@@ -515,6 +526,11 @@ export const strings = {
     'lesson.safety.explain': 'Начните с беседы: с кем мы общаемся в интернете, все ли там знакомые? Назовите главное правило: имя, адрес, телефон и пароль — только для близких; если что-то пугает или обижает — сразу рассказать взрослым.',
     'lesson.safety.practice': 'Только 3–4 класс: «Безопасный интернет» — ситуация в картинке и 2–3 ответа. В 3 классе 5 ситуаций, в 4 классе — 8. После каждого ответа звучит короткое объяснение; при неверном ответе ребёнок выбирает другой. Каждую ситуацию можно обсудить всем классом на проекторе.',
     'lesson.safety.tip': 'Важно, чтобы дети выбирали ответ, понимая причину, а не заучив его — спрашивайте «почему?». Дети могут рассказать о случаях из своей жизни: выслушайте и не ругайте.',
+    ...logicStrings.ru,
+    ...wordStrings.ru,
+    ...keysStrings.ru,
+    ...excelStrings.ru,
+    ...paintlabStrings.ru,
   },
 } as const
 

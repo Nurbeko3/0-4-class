@@ -1,0 +1,354 @@
+/* «Paint asboblari» moduli. Barcha klasslar pl- bilan boshlanadi.
+   O'lchamlar maydonga nisbatan (cqw/cqh) — 1366x768 ekranga ham sig'adi. */
+
+.pl-field {
+  container-type: size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5cqw;
+  padding: 7cqh 3cqw 3cqh;
+  background: #f6ecdb;
+}
+
+.pl-dots {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pl-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--line);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.3s var(--ease-spring);
+}
+
+.pl-dot-on {
+  background: var(--sun);
+  border-color: #e9a91f;
+  transform: scale(1.15);
+}
+
+/* ---------- Rasm maydoni (4:3) ---------- */
+
+.pl-stage {
+  position: relative;
+  flex: none;
+  width: min(66cqw, 84cqh * 4 / 3);
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  border: 4px solid var(--ink);
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 8px 0 rgb(45 58 74 / 0.18);
+  animation: fade-up 0.35s both;
+}
+
+.pl-stage-done {
+  animation: pl-cheer 0.6s var(--ease-spring) both;
+}
+
+.pl-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pl-region {
+  stroke: #2d3a4a;
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  transition: fill 0.25s ease;
+}
+
+.pl-region-live {
+  cursor: pointer;
+}
+
+/* Namunadagidan boshqa rang: bo'lak chegarasi nuqtali bo'lib "yugurib" turadi */
+.pl-region-wrong {
+  stroke-dasharray: 5 4;
+  animation: pl-march 0.6s linear infinite;
+}
+
+/* ---------- Yon panel: namuna va palitra ---------- */
+
+.pl-side {
+  flex: none;
+  width: 24cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3cqh;
+}
+
+.pl-sample {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1cqh;
+  padding: 1.5cqh 1cqw 1.2cqw;
+  border-radius: 20px;
+  background: #fff;
+  border: 4px dashed var(--line);
+  font-size: min(4.4cqh, 2.2cqw);
+  color: var(--ink-soft);
+}
+
+.pl-sample svg {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.pl-palette {
+  --c: min(10.5cqh, 5.6cqw);
+  display: grid;
+  grid-template-columns: repeat(3, var(--c));
+  gap: calc(var(--c) * 0.2);
+}
+
+.pl-color {
+  width: var(--c);
+  height: var(--c);
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 3px var(--line), 0 4px 0 rgb(45 58 74 / 0.15);
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.15s ease;
+}
+
+.pl-color:active {
+  transform: scale(0.92);
+}
+
+.pl-color.on {
+  transform: scale(1.14);
+  box-shadow: 0 0 0 4px var(--ink);
+}
+
+.pl-nudge {
+  animation: pl-shake 0.4s;
+}
+
+/* ---------- Asboblar ---------- */
+
+.pl-tools {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5cqh;
+}
+
+.pl-tool {
+  --t: min(17cqh, 9cqw);
+  display: grid;
+  place-items: center;
+  width: var(--t);
+  height: var(--t);
+  border-radius: calc(var(--t) * 0.26);
+  background: #fff;
+  color: var(--ink);
+  font-size: calc(var(--t) * 0.6);
+  box-shadow: 0 5px 0 var(--line);
+  transition: transform var(--release) var(--ease-spring-soft), box-shadow var(--release) var(--ease-out), background 0.15s ease;
+}
+
+.pl-tool:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--line);
+  transition-duration: var(--press);
+}
+
+.pl-tool.on {
+  background: var(--sun);
+  box-shadow: 0 5px 0 #e9a91f;
+}
+
+/* "Shu asbobni tanla" */
+.pl-tool-hint {
+  animation: pl-ring 1.2s ease-in-out infinite;
+}
+
+/* O'chirg'ich: qancha tozalangani */
+.pl-meter {
+  position: relative;
+  width: min(4cqh, 2.2cqw);
+  height: 22cqh;
+  border-radius: 99px;
+  background: #fff;
+  border: 3px solid var(--line);
+  overflow: hidden;
+}
+
+.pl-meter i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--leaf);
+  transition: height 0.2s ease;
+}
+
+/* ---------- Shakllar ---------- */
+
+.pl-draw {
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.pl-ghost {
+  fill: rgb(45 58 74 / 0.04);
+  stroke: #8b98a8;
+  stroke-width: 2.5;
+  stroke-dasharray: 5 5;
+  stroke-linecap: round;
+}
+
+.pl-shape {
+  stroke: #2d3a4a;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pl-snap 0.4s var(--ease-spring) both;
+}
+
+line.pl-shape {
+  stroke-width: 6;
+}
+
+.pl-preview {
+  fill: rgb(108 184 240 / 0.2);
+  stroke: #3b6bdb;
+  stroke-width: 3;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+/* Mos kelmagan shakl: so'nib yo'qoladi */
+.pl-miss {
+  fill: none;
+  stroke: #ff7a6b;
+  stroke-width: 3;
+  stroke-linecap: round;
+  pointer-events: none;
+  animation: pl-fade 0.7s ease-out both;
+}
+
+/* ---------- O'chirg'ich ---------- */
+
+.pl-cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: not-allowed;
+}
+
+.pl-cover-erase {
+  cursor: cell;
+}
+
+/* ---------- Ko'zgu ---------- */
+
+.pl-mirror {
+  --px: min(calc(82cqh / var(--h)), calc(66cqw / (var(--w) * 2)), 84px);
+  flex: none;
+  display: grid;
+  grid-template-columns: repeat(calc(var(--w) * 2), var(--px));
+  grid-auto-rows: var(--px);
+  gap: 2px;
+  padding: 2px;
+  border-radius: 16px;
+  border: 4px solid var(--ink);
+  background: #d9d2c3;
+  overflow: hidden;
+  box-shadow: 0 8px 0 rgb(45 58 74 / 0.18);
+  animation: fade-up 0.35s both;
+}
+
+.pl-mirror.pl-stage-done {
+  animation: pl-cheer 0.6s var(--ease-spring) both;
+}
+
+.pl-px {
+  background: #fff;
+}
+
+.pl-px-live {
+  background: #fbf8f1;
+  transition: background 0.15s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pl-px-live:not(.pl-px-on):hover {
+    background: #efe7d6;
+  }
+}
+
+/* Ko'zgu o'qi: o'ng yarimning birinchi ustuni oldidagi qalin chiziq */
+.pl-px-axis {
+  box-shadow: -6px 0 0 var(--coral);
+  position: relative;
+}
+
+.pl-px-on {
+  cursor: default;
+  animation: pl-snap 0.3s var(--ease-spring) both;
+}
+
+.pl-px-miss {
+  animation: pl-shake 0.35s;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  .pl-field {
+    flex-direction: column;
+  }
+
+  .pl-tools {
+    flex-direction: row;
+  }
+
+  .pl-side {
+    width: 80cqw;
+    flex-direction: row;
+  }
+}
+
+@keyframes pl-cheer {
+  40% { transform: scale(1.04) rotate(-1deg); }
+  70% { transform: scale(1.02) rotate(1deg); }
+}
+
+@keyframes pl-shake {
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+@keyframes pl-march {
+  to { stroke-dashoffset: -9; }
+}
+
+@keyframes pl-snap {
+  from { transform: scale(0.6); opacity: 0.3; }
+}
+
+@keyframes pl-fade {
+  to { opacity: 0; }
+}
+
+@keyframes pl-ring {
+  50% { box-shadow: 0 5px 0 var(--line), 0 0 0 8px rgb(255 201 74 / 0.55); }
+}

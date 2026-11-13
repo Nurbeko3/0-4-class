@@ -1,0 +1,392 @@
+/* Matn muharriri moduli. Barcha klasslar wd- bilan boshlanadi. */
+
+.wd-field {
+  container-type: size;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(#dfe8f8, #eef3fc);
+}
+
+.wd-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-top: min(12px, 2cqh);
+}
+
+.wd-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--line);
+  transition: background 0.2s ease, transform 0.3s var(--ease-spring);
+}
+
+.wd-dot-on {
+  background: var(--sun);
+  border-color: #e9a91f;
+  transform: scale(1.15);
+}
+
+/* ---------- Asboblar paneli ---------- */
+
+.wd-bar {
+  --b: min(62px, 11.5cqh, 5.6cqw);
+  display: flex;
+  margin-top: min(12px, 2cqh);
+  padding: min(10px, 1.6cqh) min(14px, 1.2cqw);
+  border-radius: 20px;
+  background: #fff;
+  border: 3px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+.wd-group {
+  display: flex;
+  gap: min(10px, 0.8cqw);
+  padding: 0 min(16px, 1.3cqw);
+}
+
+.wd-group + .wd-group {
+  border-left: 3px solid var(--line);
+}
+
+.wd-btn {
+  display: grid;
+  place-items: center;
+  width: var(--b);
+  height: var(--b);
+  border-radius: 14px;
+  background: #f4f6fb;
+  border: 3px solid var(--ink);
+  box-shadow: 0 4px 0 var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: calc(var(--b) * 0.52);
+  font-weight: 700;
+  line-height: 1;
+  transition: transform var(--release) var(--ease-spring-soft), box-shadow var(--release) var(--ease-out), background 0.15s ease;
+}
+
+.wd-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--ink);
+  transition-duration: var(--press);
+}
+
+.wd-btn b {
+  font-weight: 900;
+}
+
+.wd-btn svg {
+  font-size: calc(var(--b) * 0.62);
+}
+
+/* Belgilangan so'zda yoqilgan bezak — tugma "bosilgan" ko'rinadi */
+.wd-btn-on {
+  background: var(--sun);
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.wd-btn-hint {
+  animation: wd-pulse 0.9s var(--ease-in-out) infinite;
+}
+
+.wd-size {
+  position: relative;
+  font-weight: 900;
+}
+
+.wd-size::after {
+  position: absolute;
+  left: 100%;
+  top: -0.25em;
+  font-family: 'Nunito Variable', sans-serif;
+  font-size: 0.6em;
+}
+
+.wd-size-up {
+  margin-right: 0.3em;
+}
+
+.wd-size-up::after {
+  content: '+';
+  color: #2f9e5b;
+}
+
+.wd-size-down {
+  margin-right: 0.3em;
+  font-size: 0.72em;
+}
+
+.wd-size-down::after {
+  content: '−';
+  color: #e5484d;
+}
+
+.wd-btn-color {
+  border-radius: 50%;
+}
+
+.wd-swatch {
+  width: 62%;
+  height: 62%;
+  border-radius: 50%;
+}
+
+/* ---------- Varaq ---------- */
+
+.wd-desk {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 3cqw;
+  padding: 3cqh 3cqw 4cqh;
+}
+
+.wd-page {
+  background: #fff;
+  border: 2px solid #cfd7e6;
+  border-radius: 8px;
+  box-shadow: 0 10px 26px rgb(45 58 74 / 0.18);
+  font-weight: 600;
+  animation: fade-up 0.35s both;
+}
+
+.wd-sel {
+  background: #cfe3ff;
+  box-shadow: 0 0 0 3px #7fb2f5;
+}
+
+/* 1-daraja: bitta gap */
+
+.wd-page-one {
+  width: min(88cqw, 1080px);
+  display: grid;
+  place-items: center;
+  padding: 2cqh 3cqw;
+  font-size: min(4.6cqw, 12cqh);
+}
+
+.wd-sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.15em 0.3em;
+}
+
+.wd-word {
+  position: relative;
+  padding: 0.04em 0.16em;
+  border-radius: 0.18em;
+  line-height: 1.25;
+  transition: font-size 0.3s var(--ease-spring-soft), color 0.2s ease, background 0.15s ease;
+}
+
+.wd-pointer {
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 0;
+  height: 0;
+  margin-left: -0.28em;
+  border: 0.28em solid transparent;
+  border-top: 0.42em solid var(--coral);
+  border-bottom: 0;
+  animation: wd-bob 0.8s var(--ease-in-out) infinite alternate;
+  pointer-events: none;
+}
+
+.wd-cheer {
+  animation: wd-cheer 0.6s var(--ease-spring);
+}
+
+/* 2-daraja: qatorlar chap/o'rta/o'ngga sirpanadi */
+
+.wd-page-lines {
+  width: min(86cqw, 1000px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.4cqh;
+  padding: 2cqh 4cqw;
+  font-size: min(3.3cqw, 7.4cqh);
+}
+
+.wd-row {
+  position: relative;
+  height: 1.75em;
+}
+
+.wd-row-title {
+  font-size: 1.3em;
+  font-weight: 900;
+}
+
+.wd-line,
+.wd-ghost {
+  position: absolute;
+  top: 0;
+  padding: 0.08em 0.4em;
+  border: 3px solid transparent;
+  border-radius: 0.3em;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.wd-ghost {
+  color: transparent;
+  border: 3px dashed #aebbd2;
+  background: #f6f8fc;
+}
+
+.wd-line {
+  font-weight: inherit;
+  transition: left 0.5s var(--ease-in-out), transform 0.5s var(--ease-in-out), background 0.2s ease, border-color 0.2s ease;
+}
+
+.wd-pos-left {
+  left: 0;
+  transform: translateX(0);
+}
+
+.wd-pos-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.wd-pos-right {
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.wd-line.wd-ok {
+  background: #e3f7ea;
+  border-color: var(--leaf);
+}
+
+.wd-line.wd-sel {
+  background: #cfe3ff;
+  border-color: #7fb2f5;
+  box-shadow: none;
+}
+
+/* 3-daraja: namuna va o'z sahifasi */
+
+.wd-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2cqh;
+  min-height: 0;
+}
+
+.wd-col-sample {
+  flex: 0 0 34cqw;
+  font-size: min(2cqw, 5cqh);
+}
+
+.wd-col-yours {
+  flex: 0 0 54cqw;
+  font-size: min(2.7cqw, 6.6cqh);
+}
+
+.wd-cap {
+  padding: 2px 18px;
+  border-radius: 99px;
+  background: #fff;
+  border: 3px solid var(--line);
+  font-size: clamp(15px, 3.4cqh, 20px);
+  font-weight: 800;
+  color: var(--ink-soft);
+}
+
+.wd-cap-yours {
+  background: var(--sun);
+  border-color: #e9a91f;
+  color: var(--ink);
+}
+
+.wd-page-poster {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25em;
+  padding: 0.6em 1.9em;
+}
+
+.wd-col-sample .wd-page {
+  background: #fffaf0;
+  border-style: dashed;
+}
+
+.wd-pline {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0.1em 0.3em;
+  border-radius: 0.25em;
+  line-height: 1.25;
+  transition: font-size 0.3s var(--ease-spring-soft), color 0.2s ease, background 0.15s ease;
+}
+
+.wd-tick {
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  margin: -0.5em 0.25em 0 0;
+  /* qator kattalashsa ham belgi o'lchami o'zgarmaydi */
+  font-size: clamp(26px, 6.5cqh, 38px);
+  animation: pop-in 0.35s both;
+}
+
+/* ---------- Yo'riqnoma yonidagi animatsiya ---------- */
+
+.wd-demo {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 84px;
+  height: 84px;
+  border-radius: 20px;
+  background: #fff;
+  border: 4px solid var(--ink);
+  box-shadow: 0 5px 0 var(--ink);
+}
+
+.wd-demo-a {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 52px;
+  line-height: 1;
+  animation: wd-demo 3.2s steps(1) infinite;
+}
+
+@keyframes wd-demo {
+  0% { font-weight: 400; color: var(--ink); font-style: normal; }
+  25% { font-weight: 900; color: var(--ink); font-style: normal; }
+  50% { font-weight: 900; color: #e5484d; font-style: normal; }
+  75% { font-weight: 900; color: #2f80ed; font-style: italic; }
+}
+
+@keyframes wd-pulse {
+  0%, 100% { background: #f4f6fb; transform: none; }
+  50% { background: var(--sun); transform: scale(1.12); }
+}
+
+@keyframes wd-bob {
+  from { transform: translateY(-0.22em); }
+  to { transform: translateY(0); }
+}
+
+@keyframes wd-cheer {
+  40% { transform: scale(1.12) rotate(-2deg); }
+}

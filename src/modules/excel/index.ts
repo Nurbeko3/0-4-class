@@ -1,0 +1,5 @@
+export { ExcelCell } from './CellGame'
+export { ExcelType } from './TypeGame'
+export { ExcelSum } from './SumGame'
+export { ExcelChart } from './ChartGame'
+export { CellIcon, ChartIcon, ExcelIcon, SumIcon, TypeIcon } from './excelArt'

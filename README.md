@@ -1,7 +1,8 @@
 # Kompyuter bilan tanishuv
 
 Tayyorlov va 1–4-sinf o'quvchilari uchun kompyuter savodxonligi o'yinlari: sichqoncha, klaviatura,
-kompyuter qismlari, ish stoli, rasm chizish, algoritm va internet xavfsizligi. Interfeys o'zbek va
+tezkor tugmalar (Ctrl+C, Ctrl+V, Ctrl+Z...), kompyuter qismlari, ish stoli, matn muharriri (Word), rasm chizish
+va Paint asboblari, mantiq, algoritm, jadval (Excel) va internet xavfsizligi. Interfeys o'zbek va
 rus tilida. Sayt internetsiz ishlaydi, akkaunt va server yo'q — natijalar shu brauzerning o'zida saqlanadi.
 
 ## O'rnatish (bir marta, internet bilan)
@@ -52,9 +53,15 @@ ularni o'zingiz yozib olishingiz kerak:
    - ruscha — `public/audio/ru/`
 3. `npm run build` ni qayta bajaring.
 
-Matnlar `src/i18n/strings.ts` da (`say.` bilan boshlanadigan kalitlar). Yangi matn qo'shilsa,
+Matnlar `src/i18n/strings.ts` da va yangi modullarda `src/modules/<modul>/strings.ts` da (`say.` bilan boshlanadigan kalitlar). Yangi matn qo'shilsa,
 `npm run audio` buyrug'i yetishmayotgan fayllar uchun jimjit namuna yaratadi va `AUDIO_SCRIPT.md` ni
 yangilaydi. Siz yozgan fayllarga u tegmaydi.
+
+## Tezkor tugmalar darsi haqida
+
+«Tezkor tugmalar» o'yinlarida (Ctrl+C, Ctrl+V, Ctrl+X, Ctrl+Z, Ctrl+A, Ctrl+S) tugmalar klaviaturadagi
+joyiga qarab aniqlanadi, shuning uchun rus raskladkasida ham ishlaydi. O'yin ichida brauzerning o'z amali
+(masalan, Ctrl+S — sahifani saqlash) to'xtatib qo'yiladi. Sensorli ekranda avval ekrandagi Ctrl, keyin harf bosiladi.
 
 ## O'qituvchi rejimi
 

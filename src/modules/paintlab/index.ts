@@ -1,0 +1,5 @@
+export { PaintFill } from './FillGame'
+export { PaintShapes } from './ShapesGame'
+export { PaintEraser } from './EraserGame'
+export { PaintMirror } from './MirrorGame'
+export { EraserIcon, FillIcon, MirrorIcon, ShapesIcon } from './plArt'

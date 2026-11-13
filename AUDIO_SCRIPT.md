@@ -78,3 +78,44 @@ Bu ro'yxat `node scripts/gen-audio.mjs` bilan yangilanadi.
 | `say.paint.free.mp3` | Rang tanla va rasm chiz! Tayyor bo’lsa, yashil tugmani bos. | Выбери цвет и рисуй! Когда закончишь, нажми зелёную кнопку. |
 | `say.paint.numbers.mp3` | Rasm tanla! Keyin rangni tanlab, shu raqam yozilgan kataklarni bo’ya. | Выбери картинку! Потом выбери цвет и закрась клетки с его номером. |
 | `say.paint.numbers.math.mp3` | Misolni yech! Javobi qaysi rang ekanini aytadi. Rangni tanla va katakni bo’ya. | Реши пример! Ответ подскажет цвет. Выбери цвет и закрась клетку. |
+| `say.logic.odd.mp3` | Shakllarga qara. Boshqalariga o’xshamaydigan bittasini top va bos! | Посмотри на фигуры. Найди ту, что не похожа на остальные, и нажми на неё! |
+| `say.logic.pattern.mp3` | Shakllar qanday tartibda kelyapti? So’roq o’rniga qaysi shakl kelishini tanla! | В каком порядке идут фигуры? Выбери, какая фигура должна стоять вместо вопроса! |
+| `say.logic.memory.mp3` | Kartochkalarni ochib, bir xil rasmlar juftini top! | Открывай карточки и находи пары одинаковых картинок! |
+| `say.word.format.mp3` | So’zni bos va tugmalar bilan bezat! | Нажми на слово и укрась его кнопками! |
+| `say.word.format.heavy.mp3` | «Og’ir» so’zini bos va uni qalin qil. | Нажми на слово «тяжёлый» и сделай его жирным. |
+| `say.word.format.wind.mp3` | «Egildi» so’zini bos va uni yotiq qil. | Нажми на слово «наклонилось» и сделай его наклонным. |
+| `say.word.format.road.mp3` | «Yo’lda» so’zini bos va tagiga chiz. | Нажми на слово «дороге» и подчеркни его. |
+| `say.word.format.red.mp3` | «Qizil» so’zini bos va uni qizil rangga bo’ya. | Нажми на слово «красное» и покрась его в красный цвет. |
+| `say.word.format.green.mp3` | «Yashil» so’zini bos va uni yashil rangga bo’ya. | Нажми на слово «зелёная» и покрась его в зелёный цвет. |
+| `say.word.format.blue.mp3` | «Ko’k» so’zini bos va uni ko’k rangga bo’ya. | Нажми на слово «синее» и покрась его в синий цвет. |
+| `say.word.format.big.mp3` | «Katta» so’zini bos va uni kattalashtir. | Нажми на слово «большой» и увеличь его. |
+| `say.word.format.small.mp3` | «Kichkina» so’zini bos va uni kichraytir. | Нажми на слово «маленький» и уменьши его. |
+| `say.word.pick.mp3` | Avval so’zni bos — u ko’k rangda belgilanadi. | Сначала нажми на слово — оно выделится синим. |
+| `say.word.pickline.mp3` | Avval qatorni bos — u ko’k rangda belgilanadi. | Сначала нажми на строку — она выделится синим. |
+| `say.word.align.mp3` | Qatorni bos va tugma bilan nuqtali joyiga sur: chapga, o’rtaga yoki o’ngga. | Нажми на строку и кнопкой подвинь её на место с точками: влево, в середину или вправо. |
+| `say.word.poster.mp3` | Chapdagi namunaga qara. Qatorni bos va uni namunadagidek bezat! | Посмотри на образец слева. Нажми на строку и укрась её как в образце! |
+| `say.keys.copy.mp3` | Bo’sh joylarni to’ldiramiz! Ctrl tugmasini bosib turib, C ni bos — nusxa olinadi. | Заполним пустые места! Удерживая клавишу Ctrl, нажми C — получится копия. |
+| `say.keys.copy.paste.mp3` | Endi Ctrl ni bosib turib V ni bos — har bosishda bitta nusxa qo’yiladi. | Теперь, удерживая Ctrl, нажимай V — каждый раз вставляется одна копия. |
+| `say.keys.cut.mp3` | Kimdir adashib, begona uyga kirib qoldi! Uni sichqoncha bilan bos. | Кто-то заблудился и попал в чужой домик! Нажми на него мышкой. |
+| `say.keys.cut.x.mp3` | Ctrl ni bosib turib X ni bos — u qirqib olinadi. | Удерживая Ctrl, нажми X — он вырежется. |
+| `say.keys.cut.place.mp3` | Endi uning o’z uyini sichqoncha bilan bos. | Теперь нажми мышкой на его собственный домик. |
+| `say.keys.cut.v.mp3` | Ctrl ni bosib turib V ni bos — u uyiga qo’yiladi. | Удерживая Ctrl, нажми V — он вставится в свой домик. |
+| `say.keys.undo.mp3` | Shumtak siyoh rasmni bulg’adi! Ctrl ni bosib turib Z ni bos — oxirgi dog’ yo’qoladi. | Озорные чернила испачкали рисунок! Удерживая Ctrl, нажми Z — последнее пятно исчезнет. |
+| `say.keys.save.mp3` | Ctrl ni bosib turib A ni bos — hammasi birdan belgilanadi. | Удерживая Ctrl, нажми A — всё выделится сразу. |
+| `say.keys.save.copy.mp3` | Barakalla! Endi Ctrl va C bilan nusxa ol. | Молодец! Теперь скопируй: Ctrl и C. |
+| `say.keys.save.paste.mp3` | Ctrl va V ni bos — hammasi ko’payadi. | Нажми Ctrl и V — всего станет больше. |
+| `say.keys.save.disk.mp3` | Rasm tayyor! Ctrl va S ni bos — rasm saqlanadi. | Рисунок готов! Нажми Ctrl и S — рисунок сохранится. |
+| `say.keys.hold.mp3` | Ctrl tugmasini qo’yib yubormay turib, ikkinchi tugmani bos. | Не отпуская Ctrl, нажми вторую клавишу. |
+| `say.excel.cell.mp3` | Har katakning manzili bor: harf va raqam. Aytilgan katakni top va bos — xazina o’sha yerda! | У каждой ячейки есть адрес: буква и цифра. Найди названную ячейку и нажми — клад там! |
+| `say.excel.cell.name.mp3` | Endi aksincha: sariq katakning manzilini tanla! | Теперь наоборот: выбери адрес жёлтой ячейки! |
+| `say.excel.type.mp3` | Topshiriqdagi katakni bos, sonni yoz va Enter tugmasini bos! | Нажми на ячейку из задания, напиши число и нажми Enter! |
+| `say.excel.sum.mp3` | Sonlarni birma-bir bosib qo’sh. Keyin javobni yoz va Enter tugmasini bos! | Нажимай на числа по одному, чтобы сложить их. Потом напиши ответ и нажми Enter! |
+| `say.excel.sum.auto.mp3` | Endi sehrli tugma! Avtoyig’indi tugmasini bos — kompyuter o’zi hisoblaydi. | А теперь волшебная кнопка! Нажми «Автосумма» — компьютер посчитает сам. |
+| `say.excel.chart.mp3` | Jadvalga qara va har bir ustunni kerakli balandlikkacha ko’tar! | Посмотри на таблицу и подними каждый столбик до нужной высоты! |
+| `say.excel.chart.most.mp3` | Qaysi biri eng ko’p? Eng baland ustunni bos! | Чего больше всего? Нажми на самый высокий столбик! |
+| `say.paintlab.fill.mp3` | Namunaga qara. Rangni tanla va rasmning bo’lagini bos — chelak uni bo’yaydi! | Посмотри на образец. Выбери цвет и нажми на часть рисунка — ведёрко её закрасит! |
+| `say.paintlab.shapes.mp3` | Asbobni tanla: chiziq, to’rtburchak yoki doira. Nuqtali shakl ustida sichqonchani bosib turib tort! | Выбери инструмент: линию, прямоугольник или круг. Зажми кнопку мыши и тяни по пунктирной фигуре! |
+| `say.paintlab.shapes.tool.mp3` | Bu shaklga boshqa asbob kerak. Asbobni almashtir! | Для этой фигуры нужен другой инструмент. Поменяй инструмент! |
+| `say.paintlab.eraser.mp3` | Rasmni kimdir chizib tashlabdi! O’chirg’ichni tanla va hammasini tozala. | Кто-то исчеркал рисунок! Выбери ластик и сотри всё лишнее. |
+| `say.paintlab.eraser.pick.mp3` | Cho’tka o’chirmaydi. Avval o’chirg’ichni tanla! | Кисть не стирает. Сначала выбери ластик! |
+| `say.paintlab.mirror.mp3` | Chap tomonga qara. O’ng tomonni xuddi ko’zgudagidek bo’ya! | Посмотри на левую половину. Закрась правую так же, как в зеркале! |
